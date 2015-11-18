@@ -30,7 +30,7 @@ if $(OS) = LINUX || $(UNIX)
   VERSION_MINOR = 1 ;
   
   # root of install path
-  prefix = /Users/aks/CUnitHome ;
+  prefix = /usr/local ;
 
   # choice of interfaces to build into library
   if TRUE = TRUE
