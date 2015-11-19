@@ -23,7 +23,9 @@ x64
 [Bb]in/
 [Bb]in-*/
 [Dd]ebug/
+[Dd]ebug-*/
 [Rr]elease/
+[Rr]elease-*/
 ipch/
 
 # Various types of usual temporary files
