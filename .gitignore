@@ -43,3 +43,6 @@ ipch/
 *.bz2
 *.rar
 *.7z
+
+# CUnit test results
+VC*/*.xml

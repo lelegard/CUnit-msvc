@@ -233,6 +233,7 @@ static void testAbort(void)
 static void testAbortIndirect(void)
 {
   testAbort();
+  /* unreachable */
   fprintf(stderr, "\nFatal assertion failed to abort test in testAbortIndirect2\n");
   exit(1);
 }
@@ -241,6 +242,7 @@ static void testFatal(void)
 {
   CU_TEST_FATAL(CU_TRUE);
   testAbortIndirect();
+  /* unreachable */
   fprintf(stderr, "\nFatal assertion failed to abort test in testFatal\n");
   exit(1);
 }

@@ -360,7 +360,7 @@ void CU_dump_memory_usage(const char* szFilename)
     pTempEvent = pTempNode->pFirstEvent;
     while (NULL != pTempEvent) {
       fprintf(pFile, "\n      <MD_EVENT_RECORD>");
-      fprintf(pFile, "\n        <MD_SIZE> %u </MD_SIZE>", pTempEvent->Size);
+      fprintf(pFile, "\n        <MD_SIZE> %u </MD_SIZE>", (unsigned)pTempEvent->Size);
       fprintf(pFile, "\n        <MD_ALLOC_FILE> %s </MD_ALLOC_FILE>", pTempEvent->AllocFilename);
       fprintf(pFile, "\n        <MD_ALLOC_LINE> %u </MD_ALLOC_LINE>", pTempEvent->AllocLine);
       fprintf(pFile, "\n        <MD_DEALLOC_FILE> %s </MD_DEALLOC_FILE>", pTempEvent->DeallocFilename);

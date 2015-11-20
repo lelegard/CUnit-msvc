@@ -19,7 +19,7 @@ Name "CUnit - A unit testing framework for C"
 !define RegEnv '"SYSTEM\CurrentControlSet\Control\Session Manager\Environment"'
 
 ; Installer file name
-OutFile "CUnit-win32-${CUnitVersion}.exe"
+OutFile "CUnit-msvc-${CUnitVersion}.exe"
 
 ; Default installation folder
 InstallDir "$PROGRAMFILES\CUnit"
@@ -57,7 +57,7 @@ Section "CUnit"
   SetOutPath "$INSTDIR\Include\CUnit"
   File /x wxWidget.h /x MyMem.h /x CUnit_intl.h "..\CUnit\Headers\*.h"
 
-  ; Libraries
+  ; Libraries (32 bits)
   CreateDirectory "$INSTDIR\Lib\Release-Win32"
   SetOutPath "$INSTDIR\Lib\Release-Win32"
   File "..\VC14\Release-StaticLib-Win32\CUnit.lib"
@@ -66,7 +66,25 @@ Section "CUnit"
   File "..\VC14\Debug-StaticLib-Win32\CUnit.lib"
   File "..\VC14\Debug-StaticLib-Win32\CUnit.pdb"
 
-  ; Visual Studio property files
+  ; Libraries (32 bits), using "x86" as platform name.
+  CreateDirectory "$INSTDIR\Lib\Release-x86"
+  SetOutPath "$INSTDIR\Lib\Release-x86"
+  File "..\VC14\Release-StaticLib-Win32\CUnit.lib"
+  CreateDirectory "$INSTDIR\Lib\Debug-x86"
+  SetOutPath "$INSTDIR\Lib\Debug-x86"
+  File "..\VC14\Debug-StaticLib-Win32\CUnit.lib"
+  File "..\VC14\Debug-StaticLib-Win32\CUnit.pdb"
+
+  ; Libraries (64 bits)
+  CreateDirectory "$INSTDIR\Lib\Release-x64"
+  SetOutPath "$INSTDIR\Lib\Release-x64"
+  File "..\VC14\Release-StaticLib-x64\CUnit.lib"
+  CreateDirectory "$INSTDIR\Lib\Debug-x64"
+  SetOutPath "$INSTDIR\Lib\Debug-x64"
+  File "..\VC14\Debug-StaticLib-x64\CUnit.lib"
+  File "..\VC14\Debug-StaticLib-x64\CUnit.pdb"
+
+  ; Visual Studio property file for applications
   SetOutPath "$INSTDIR"
   File "CUnit.props"
 
