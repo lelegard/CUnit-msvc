@@ -16,6 +16,9 @@
 *.dll.embed.manifest.ilk
 .vs
 x64
+*.VC.db
+*.VC.dbopen
+*.VC.opendb
 
 # Subdirectories containing binaries for various tools
 [Oo]bj/
