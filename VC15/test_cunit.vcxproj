@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{0336E4F1-B2E5-4E56-AA33-2709A75004F8}</ProjectGuid>
+    <RootNamespace>test_cunit</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project=".\CUnit-common.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>14.0.23107.0</_ProjectFileVersion>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\CUnit\Sources\Test;..\CUnit\Headers;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CONSOLE;MEMTRACE;CUNIT_BUILD_TESTS;CUNIT_DO_NOT_DEFINE_UNLESS_BUILDING_TESTS;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)test\</ObjectFileName>
+    </ClCompile>
+    <Link>
+      <OutputFile>$(OutDir)$(ProjectName).exe</OutputFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\CUnit\Sources\Framework\CUError.c" />
+    <ClCompile Include="..\CUnit\Sources\Framework\MyMem.c" />
+    <ClCompile Include="..\CUnit\Sources\Framework\TestDB.c" />
+    <ClCompile Include="..\CUnit\Sources\Framework\TestRun.c" />
+    <ClCompile Include="..\CUnit\Sources\Framework\Util.c" />
+    <ClCompile Include="..\CUnit\Sources\Test\test_cunit.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\CUnit\Headers\CUError.h" />
+    <ClInclude Include="..\CUnit\Headers\CUnit.h" />
+    <ClInclude Include="..\CUnit\Headers\MyMem.h" />
+    <ClInclude Include="..\CUnit\Headers\TestDB.h" />
+    <ClInclude Include="..\CUnit\Headers\TestRun.h" />
+    <ClInclude Include="..\CUnit\Headers\Util.h" />
+    <ClInclude Include="..\CUnit\Sources\Test\test_cunit.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\CUnit\Sources\Test\Jamfile">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib-MemTrace|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib-MemTrace|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">true</ExcludedFromBuild>
+    </CustomBuild>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
